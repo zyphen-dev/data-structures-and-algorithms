@@ -1,4 +1,4 @@
-package BasicMath;
+package basicMath;
 
 public class DivisorOfNumber {
     public static void main(String[] args) {

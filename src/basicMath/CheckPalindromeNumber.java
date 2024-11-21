@@ -1,4 +1,4 @@
-package BasicMath;
+package basicMath;
 
 /**
  * Check if a number is Palindrome or Not

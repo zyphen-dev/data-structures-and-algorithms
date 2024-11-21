@@ -1,4 +1,4 @@
-package BasicMath;
+package basicMath;
 
 /**
  * Determine whether a number is an Armstrong number.

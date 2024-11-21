@@ -1,4 +1,4 @@
-package BasicMath;
+package basicMath;
 
 /**
  * Count the number(both -ive and +ive) of digits in the variable.

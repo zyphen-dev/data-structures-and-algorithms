@@ -1,4 +1,4 @@
-package BasicMath;
+package basicMath;
 
 /**
  * Reverse an Integer.
