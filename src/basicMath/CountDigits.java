@@ -7,14 +7,16 @@ public class CountDigits {
     public static void main(String[] args) {
         int num = 343242;
         int temp = num;
-        int numberCount = 0;
-        while (temp != 0) {
-            numberCount++;
-            temp = temp / 10;
+        int count = 0;
+        while(temp > 0) {
+            temp = num%10;
+            count++;
+            temp = temp/10;
         }
-        System.out.println("The number " + num + " has " + numberCount + " digits in it.");
-        System.out.println("The number " + num + " has " + countDigits(num) + " digits in it.");
-
+        System.out.println(countDigits(num));
+        System.out.println("use of / = " + num/10);
+        System.out.println("use of % = " + num%10);
+        System.out.println("Number of digits are "+count);
     }
 
     /**
