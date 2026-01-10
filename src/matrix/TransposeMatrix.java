@@ -31,7 +31,7 @@ public class TransposeMatrix {
      * @param transposeMatrix an empty matrix used to store the transpose
      * @return the transposed matrix
      */
-    static int[][] transposeMatrix(int[][] matrix, int[][] transposeMatrix) {
+    private static int[][] transposeMatrix(int[][] matrix, int[][] transposeMatrix) {
         for (int row = 0; row < matrix.length; row++) {
             for (int column = 0; column < matrix[row].length; column++) {
                 transposeMatrix[row][column] = matrix[column][row];
@@ -45,7 +45,7 @@ public class TransposeMatrix {
      *
      * @param matrix the matrix to be printed
      */
-    static void printMatrix(int[][] matrix) {
+    private static void printMatrix(int[][] matrix) {
         for (int row = 0; row < matrix.length; row++) {
             for (int column = 0; column < matrix[row].length; column++) {
                 System.out.print(matrix[row][column] + " ");
