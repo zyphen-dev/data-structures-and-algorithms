@@ -1,5 +1,7 @@
 
-package linkedlist;
+package linkedlist.foundation;
+
+import linkedlist.Node;
 
 /**
  * Demonstrates how to find the last node in a singly linked list.

@@ -1,5 +1,7 @@
 
-package linkedlist;
+package linkedlist.foundation;
+
+import linkedlist.Node;
 
 /**
  * Demonstrates how to calculate the sum of all node values

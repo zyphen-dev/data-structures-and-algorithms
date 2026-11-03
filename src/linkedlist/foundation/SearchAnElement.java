@@ -1,5 +1,7 @@
 
-package linkedlist;
+package linkedlist.foundation;
+
+import linkedlist.Node;
 
 /**
  * Demonstrates how to search for an element in a singly linked list.

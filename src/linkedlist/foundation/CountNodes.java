@@ -1,4 +1,6 @@
-package linkedlist;
+package linkedlist.foundation;
+
+import linkedlist.Node;
 
 public class CountNodes {
     static void main() {

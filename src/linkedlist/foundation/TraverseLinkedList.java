@@ -1,4 +1,6 @@
-package linkedlist;
+package linkedlist.foundation;
+
+import linkedlist.Node;
 
 /**
  * Topic: Linked List Traversal Approaches
