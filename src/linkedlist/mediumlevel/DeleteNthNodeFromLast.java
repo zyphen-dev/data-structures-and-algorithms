@@ -3,7 +3,7 @@ package linkedlist.mediumlevel;
 
 import linkedlist.Node;
 
-public class FindNthNodeFromLast {
+public class DeleteNthNodeFromLast {
 
     static void main() {
         Node<Integer> head = createLinkedList();
@@ -11,8 +11,39 @@ public class FindNthNodeFromLast {
         // Delete the 6th node from the end.
         head = deleteNthNodeFromEnd(6, head);
 
+        printLinkedList(head);
+        head = deleteNthNodeFromEndUsingTwoPointer(5, head);
+
         // Print the updated linked list.
         printLinkedList(head);
+    }
+
+    private static <T> Node<T> deleteNthNodeFromEndUsingTwoPointer(int target, Node<T> head) {
+        Node<T> dummy = new Node<>(null);
+
+        dummy.next = head;
+
+        Node<T> slow = dummy;
+        Node<T> fast = dummy;
+
+        for (int i = 0; i < target; i++) {
+            if (fast != null) {
+                fast = fast.next;
+            }
+        }
+
+        if (fast.next == null) {
+            return head.next;
+        }
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next;
+
+        return head;
     }
 
     /**

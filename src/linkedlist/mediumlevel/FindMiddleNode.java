@@ -1,4 +1,6 @@
-package linkedlist;
+package linkedlist.mediumlevel;
+
+import linkedlist.Node;
 
 /**
  * Demonstrates finding the middle node of a singly linked list.
