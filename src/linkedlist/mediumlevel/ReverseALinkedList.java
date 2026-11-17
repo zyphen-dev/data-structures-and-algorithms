@@ -22,7 +22,8 @@ public class ReverseALinkedList {
     static void main() {
         Node<Integer> head = createLinkedList();
         printLinkedList(head);
-        Node<Integer> result = reverseLinkedList(head);
+//        Node<Integer> result = reverseLinkedListUsingStack(head);
+        Node<Integer> result = reserveLinkedList(head);
         printLinkedList(result);
     }
 
@@ -34,7 +35,7 @@ public class ReverseALinkedList {
      * @param <T>  the type of data stored in the nodes
      * @return the new head node of the reversed linked list, or {@code null} if the list is empty
      */
-    private static <T> Node<T> reverseLinkedList(Node<T> head) {
+    private static <T> Node<T> reverseLinkedListUsingStack(Node<T> head) {
         if (head == null) {
             return null;
         }
@@ -61,6 +62,21 @@ public class ReverseALinkedList {
         // Terminate the list to prevent a cycle with the original head's next pointer
         curr.next = null;
         return newHead;
+    }
+
+    private static <T> Node<T> reserveLinkedList(Node<T> head) {
+        Node<T> prev = null;
+        Node<T> temp = head;
+        Node<T> front = null;
+
+        while(temp!=null) {
+            front = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = front;
+        }
+
+        return prev;
     }
 
     /**
