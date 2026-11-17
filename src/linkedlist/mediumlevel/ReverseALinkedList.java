@@ -5,12 +5,13 @@ import linkedlist.Node;
 import java.util.Stack;
 
 /**
- * Demonstrates how to reverse a singly linked list using a {@link Stack}.
+ * Demonstrates how to reverse a singly linked list using both an auxiliary
+ * {@link Stack} and an optimal in-place iterative pointer approach.
  *
  * <p><b>Complexity Analysis:</b></p>
  * <ul>
- *   <li><b>Time Complexity:</b> O(n) — each node is pushed onto and popped from the stack once.</li>
- *   <li><b>Space Complexity:</b> O(n) — requires auxiliary stack space proportional to the number of nodes.</li>
+ *   <li><b>Stack Approach:</b> Time Complexity: O(n), Space Complexity: O(n)</li>
+ *   <li><b>Iterative In-Place Approach:</b> Time Complexity: O(n), Space Complexity: O(1)</li>
  * </ul>
  */
 public class ReverseALinkedList {
@@ -30,6 +31,12 @@ public class ReverseALinkedList {
     /**
      * Reverses a singly linked list by pushing all nodes onto a stack
      * and popping them in LIFO (Last-In, First-Out) order to rebuild the links.
+     *
+     * <p><b>Complexity Analysis:</b></p>
+     * <ul>
+     *   <li><b>Time Complexity:</b> O(n) — each node is pushed onto and popped from the stack once.</li>
+     *   <li><b>Space Complexity:</b> O(n) — requires auxiliary stack space proportional to the number of nodes.</li>
+     * </ul>
      *
      * @param head the head node of the singly linked list to reverse
      * @param <T>  the type of data stored in the nodes
@@ -64,18 +71,41 @@ public class ReverseALinkedList {
         return newHead;
     }
 
+    /**
+     * Reverses a singly linked list in place using an iterative three-pointer approach.
+     *
+     * <p>Iterates through the list while redirecting each node's {@code next} reference
+     * to point to its preceding node, without allocating additional data structures.</p>
+     *
+     * <p><b>Complexity Analysis:</b></p>
+     * <ul>
+     *   <li><b>Time Complexity:</b> O(n) — traverses the linked list of {@code n} nodes once.</li>
+     *   <li><b>Space Complexity:</b> O(1) — reverses the list in place using a constant number of pointers.</li>
+     * </ul>
+     *
+     * @param head the head node of the singly linked list to reverse
+     * @param <T>  the type of data stored in the nodes
+     * @return the new head node of the reversed linked list (originally the tail),
+     *         or {@code null} if the list is empty
+     */
     private static <T> Node<T> reserveLinkedList(Node<T> head) {
         Node<T> prev = null;
         Node<T> temp = head;
         Node<T> front = null;
 
-        while(temp!=null) {
+        while (temp != null) {
+            // Save the next node before overwriting temp.next
             front = temp.next;
+
+            // Reverse the current node's pointer to point to the previous node
             temp.next = prev;
+
+            // Advance pointers one position forward
             prev = temp;
             temp = front;
         }
 
+        // prev now points to the new head of the reversed list
         return prev;
     }
 
